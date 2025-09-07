@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Dancing Script', cursive;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid #ff2e63;
+      margin-bottom: 20px;
+      box-shadow: 0 0 25px #ff2e63;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { box-shadow: 0 0 15px #ff2e63; }
+      to { box-shadow: 0 0 40px #ff1744; }
+    }
+
+    .text-box {
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-radius: 25px;
+      padding: 25px 35px;
+      margin: 10px;
+      max-width: 650px;
+      box-shadow: 0 0 30px rgba(255, 0, 80, 0.5);
+      backdrop-filter: blur(8px);
+      animation: pulseBox 2s infinite;
+    }
+    @keyframes pulseBox {
+      0% { transform: scale(1); box-shadow:0 0 20px rgba(255,0,80,0.5);}
+      50% { transform: scale(1.05); box-shadow:0 0 35px rgba(255,0,80,0.8);}
+      100% { transform: scale(1); box-shadow:0 0 20px rgba(255,0,80,0.5);}
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.8rem;
+      color: #ff1744;
+      text-shadow: 2px 2px 10px #ffd54f;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      color: #6a1b9a;
+      text-shadow: 1px 1px 6px #fff176;
+      margin: 5px 0;
+    }
+
+    a {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      text-decoration: none;
+      background: linear-gradient(45deg,#ff2e63,#ff4f81);
+      color: white;
+      box-shadow: 0 0 20px rgba(255,0,80,0.5);
+      transition: 0.3s;
+    }
+    a:hover { transform: scale(1.1); box-shadow:0 0 30px #ff1744; }
+
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      color: #fff;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(-10vh); }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts"></div>
+  <img src="images/her.jpg" alt="Her Photo">
+
+  <div class="text-box">
+    <h1>Happy Birthday Priyanshi ❤️</h1>
+    <p>Enjoy your day my girl ✨💖</p>
+    <p>I hope tera aaj ka din teri EYES and teri SMILE jesa jaye sbse best!!❤️</p>
+  </div>
+
+  <a href="sunflower.html">Next ➝</a>
+
+  <script>
+    const heartsContainer = document.querySelector('.hearts');
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 25 + 15 + 'px';
+      heart.style.animationDuration = (Math.random() * 4 + 3) + 's';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 300);
+  </script>
+</body>
+</html>
