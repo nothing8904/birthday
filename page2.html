@@ -121,6 +121,8 @@
 
     // Trick No button
     const noBtn = document.getElementById('noBtn');
+    let clickCount = 0;
+    let hoverCount = 0;
 
     function moveButton() {
       const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
@@ -130,18 +132,34 @@
       noBtn.style.top = y + 'px';
     }
 
+    function checkWarning() {
+      if(clickCount >= 3 || hoverCount >= 3) {
+        alert("I'm from God's side 😡 Piyush is getting angry! Say YES ❤️");
+        clickCount = 0; // reset counter
+        hoverCount = 0;
+      }
+    }
+
     // Desktop hover
-    noBtn.addEventListener('mouseover', moveButton);
+    noBtn.addEventListener('mouseover', () => {
+      hoverCount++;
+      moveButton();
+      checkWarning();
+    });
 
     // Mobile touch
     noBtn.addEventListener('touchstart', (e) => {
       e.preventDefault(); // prevent accidental click
+      clickCount++;
       moveButton();
+      checkWarning();
     });
 
     // Click fallback
     noBtn.addEventListener('click', () => {
-      noBtn.style.display = 'none';
+      clickCount++;
+      moveButton();
+      checkWarning();
     });
   </script>
 </body>
